@@ -48,7 +48,8 @@ const container = document.querySelector("#button-container");
 const output = document.querySelector("#output");
 const input = document.querySelector("#input");
 
-["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+", "-", "*", "/", "_"].forEach(c => {
+const numbers = document.querySelector("#numbers");
+["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].forEach(c => {
     const node = document.createElement("div");
     node.classList.add("button")
     node.textContent = c;
@@ -56,8 +57,22 @@ const input = document.querySelector("#input");
         input.textContent += c;
         output.textContent = evalRPN(input.textContent.split("_")).toString();
     });
-    container.appendChild(node);
+    numbers.appendChild(node);
 });
+container.appendChild(numbers);
+
+const operators = document.querySelector("#operators");
+["+", "-", "*", "/", "_"].forEach(c => {
+    const node = document.createElement("div");
+    node.classList.add("button")
+    node.textContent = c;
+    node.addEventListener("click", () => {
+        input.textContent += c;
+        output.textContent = evalRPN(input.textContent.split("_")).toString();
+    });
+    operators.appendChild(node);
+});
+container.appendChild(operators);
 
 const clear = document.createElement("div");
 clear.classList.add("button")
@@ -66,7 +81,7 @@ clear.addEventListener("click", () => {
     output.textContent = "";
     input.textContent = "";
 });
-container.appendChild(clear);
+operators.appendChild(clear);
 
 const del = document.createElement("div");
 del.classList.add("button");
@@ -75,7 +90,7 @@ del.addEventListener("click", () => {
     input.textContent = input.textContent.slice(0, input.textContent.length - 1);
     output.textContent = evalRPN(input.textContent.split("_")).toString();
 });
-container.appendChild(del);
+operators.appendChild(del);
 
 const history_container = document.querySelector("#history-container");
 
@@ -92,4 +107,4 @@ save.addEventListener("click", () => {
     });
     history_container.appendChild(node);
 });
-container.appendChild(save);
+operators.appendChild(save);

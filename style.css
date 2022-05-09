@@ -30,6 +30,10 @@ body {
     margin: 1% 0px 0px 0px;
 }
 
+#numbers {
+    display: grid;
+}
+
 .button {
     background-color: #634832;
     color: #dbc1ac;
@@ -46,12 +50,24 @@ body {
 }
 
 #history-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: stretch;
     margin: 1% 0px 0px 0px;
     background-color: #634832;
     min-height: 50px;
     min-width: 30%;
+    padding: 10px;
 }
 
 .history-event {
-    
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    min-height: 40px;
+    height: 40px;
+    background-color: #7a5a3f;
 }
