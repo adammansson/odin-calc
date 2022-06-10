@@ -25,13 +25,14 @@ body {
 
 #button-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 1% 0px 0px 0px;
 }
 
-#numbers {
-    display: grid;
+#numbers, #operators {
+    display: flex;
 }
 
 .button {
